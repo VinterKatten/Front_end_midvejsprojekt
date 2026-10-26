@@ -1,0 +1,15 @@
+# Node / npm
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Environment
+.env
+
+# OS‑specifikke filer
+.DS_Store
+Thumbs.db
+
+# Build / distributable artefacts
+dist/
+
