@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Trainer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header><h1>POKÉMON</h1></header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="poke.html">Pokemon</a>
+    <a href="trainer.html">Trainer</a>
+    <a href="dash.html">Dashboard</a>
+</nav>
+
+<h2>TRAINER</h2>
+<section>
+    <h2>All Trainers</h2>
+    <div id="trainerList"></div>
+</section>
+
+<section>
+    <h2>Trainer´s pokemon</h2>
+
+</section>
+
+<section>
+    <h2>Create a Trainer</h2>
+
+    <form id="createTrainerform">
+        <label for="trainerName">Trainer Name:</label>
+        <input type="text" id="trainerName" required>
+
+        <button type="submit">Create Trainer</button>
+    </form>
+</section>
+
+<section>
+    <h2>Add Pokémon to trainer</h2>
+    <form id="createPokemonForm">
+        <label for="PokemonName">Pokemon Name:</label>
+        <input type="text" id="PokemonName" required>
+
+        <button type="submit">Create Pokemon</button>
+    </form>
+</section>
 
 </body>
 </html>
