@@ -1,21 +1,5 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('mysql2');
-
-const app = express();
-app.use(express.json());
-const port = 3000;
-
-app.use(cors());
-app.use(express.json());
-
-const connection = db.createConnection({
-    host: process.env.DBHOST,
-    user: process.env.DBUSER,
-    password: process.env.DBPASSWORD,
-    database: process.env.DBDATABASE
-});
-
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+fetch("http://localhost:3000/pokemon")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
 });
