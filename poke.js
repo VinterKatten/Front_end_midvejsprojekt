@@ -9,6 +9,24 @@ const inputForName = document.querySelector("#nameInput")
 
 const resultsForPoke = document.querySelector("#pokemonResults")
 
+function getPokemon(url){
+        fetch(url)
+            .then(response=>response.json())
+            .then(data => {
+                    resultsForPoke.innerHTML = "";
+
+                    data.forEach(pokemon =>{
+                        const p = document.createElement("p")
+                        p.textContent = pokemon.name
+                        resultsForPoke.appendChild(p)
+                    });
+            })
+            .catch(error => {
+                console.log("Error: ", error)
+            });
+}
+
+
 
 
 fetch("http://localhost:3000/pokemon")
