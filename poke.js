@@ -26,11 +26,21 @@ function getPokemon(url){
             });
 }
 
+BtnForAll.addEventListener("click", ()=> {
+    getPokemon("http://localhost:3000/pokemon")
+})
 
+btnForType.addEventListener("click",()=>{
+    const type = inputForType.value
+    getPokemon(`http://localhost:3000/filter/type?type=${encodeURIComponent(type)}`)
+})
 
+btnForAttack.addEventListener("click",()=>{
+    const attack = inputForAttack.value
+    getPokemon(`http://localhost:3000/filter/minATK?attack=${encodeURIComponent(attack)}`)
+})
 
-fetch("http://localhost:3000/pokemon")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-});
+btnForName.addEventListener("click",()=>{
+    const name = inputForName.value
+    getPokemon(`http://localhost:3000/filter/name?char=${encodeURIComponent(name)}`)
+})
