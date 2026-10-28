@@ -11,8 +11,8 @@ app.use(express.json());
 
 const connection = db.createConnection({
     host: process.env.DBHOST,
-    user: process.env.DBUSER,      // e.g. 'root'
-    password: process.env.DBPASSWORD, // your actual password
+    user: process.env.DBUSER,
+    password: process.env.DBPASSWORD,
     database: process.env.DBDATABASE
 });
 
