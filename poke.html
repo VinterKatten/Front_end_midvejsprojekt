@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokemon</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -29,14 +30,14 @@
 
     <br><br>
 
-    <label for="attackInput">Attack higher than: </label>
-    <input type="number" id="attackInput" required>
+    <label for="attackInput">Min. Atk: </label>
+    <input type="number" id="attackInput" required placeholder="e.g. 80">
     <button id="attackBtn">Search attack</button>
 
     <br><br>
 
     <label for="nameInput">Pokémon name: </label>
-    <input type="text" id="nameInput" required>
+    <input type="text" id="nameInput" required placeholder="Search pokémon">
     <button id="nameBtn">Search name</button>
 
     <div id="pokemonResults"></div>
