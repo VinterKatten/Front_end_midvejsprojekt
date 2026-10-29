@@ -50,6 +50,5 @@ addPokemonForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log("Answer from server:", data);
-            addPokemonMessage.textContent = pokemonName + " added to " + trainerName + "!";
-        });
+            addPokemonMessage.textContent = trainerName + " caught a " + pokemonName + "!";        });
 });
