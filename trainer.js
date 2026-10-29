@@ -57,9 +57,15 @@ function loadTrainers() {
     fetch('http://localhost:3000/trainer')
         .then(res => res.json())
         .then(trainers => {
-            console.log("Liste over trainers:", trainers);
+            const trainerList = document.getElementById('trainerList');
+            trainerList.innerHTML = ''; // Tømmer listen først, så der ikke kommer dubletter
+
+            trainers.forEach(trainer => {
+                const p = document.createElement('p');
+                p.textContent = trainer.trainer_name + " - Alder: " + (trainer.age || "Ukendt") + " - By: " + (trainer.hometown || "Ukendt");
+                trainerList.appendChild(p);
+            });
         });
 }
 
-// Kører funktionen med det samme siden indlæses
 loadTrainers();
