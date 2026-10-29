@@ -25,3 +25,31 @@ createTrainerForm.addEventListener('submit', (event) => {
             messageElement.textContent = "Trainer created!";
         });
 });
+
+const addPokemonForm = document.getElementById('createPokemonForm');
+const addPokemonMessage = document.getElementById('addPokemonMessage');
+
+addPokemonForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const trainerName = document.getElementById('assignTrainerName').value;
+    const pokemonName = document.getElementById('PokemonName').value;
+
+    console.log("Add", pokemonName, "to", trainerName);
+
+    fetch('http://localhost:3000/add_pokemonToTrainer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            trainer_name: trainerName,
+            pokemon_name: pokemonName
+        })
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Answer from server:", data);
+            addPokemonMessage.textContent = pokemonName + " added to " + trainerName + "!";
+        });
+});

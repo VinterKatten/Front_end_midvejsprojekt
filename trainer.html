@@ -42,13 +42,17 @@
 </section>
 
 <section>
-    <h2>Add Pokémon to trainer</h2>
+    <h2>Add Pokémon to Trainer</h2>
     <form id="createPokemonForm">
+        <label for="assignTrainerName">Trainer Name:</label>
+        <input type="text" id="assignTrainerName" required>
+
         <label for="PokemonName">Pokemon Name:</label>
         <input type="text" id="PokemonName" required>
 
-        <button type="submit">Create Pokemon</button>
+        <button type="submit">Add Pokemon</button>
     </form>
+    <p id="addPokemonMessage"></p>
 </section>
 
 <script src="trainer.js"></script>
