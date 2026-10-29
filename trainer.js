@@ -52,3 +52,14 @@ addPokemonForm.addEventListener('submit', (event) => {
             console.log("Answer from server:", data);
             addPokemonMessage.textContent = trainerName + " caught a " + pokemonName + "!";        });
 });
+
+function loadTrainers() {
+    fetch('http://localhost:3000/trainer')
+        .then(res => res.json())
+        .then(trainers => {
+            console.log("Liste over trainers:", trainers);
+        });
+}
+
+// Kører funktionen med det samme siden indlæses
+loadTrainers();
