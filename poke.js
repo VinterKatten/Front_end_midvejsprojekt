@@ -17,7 +17,7 @@ function getPokemon(url){
 
                     data.forEach(pokemon =>{
                         const p = document.createElement("p")
-                        p.textContent = pokemon.name
+                        p.textContent = Object.values(pokemon).join(" | ")
                         resultsForPoke.appendChild(p)
                     });
             })
