@@ -1,0 +1,139 @@
+@font-face {
+    font-family: "Pokemon Hollow";
+    src: url("fonts/Pokemon Hollow.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Pokemon Solid";
+    src: url("fonts/Pokemon Solid.ttf") format("truetype");
+}
+
+
+p {
+    font-family: "Fredoka", sans-serif;
+    line-height: 1.6;
+}
+
+
+a:hover {
+    color: #ffD34E;
+}
+a{
+    text-decoration: none;
+    color: #E9435A;
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    background: #242653;
+}
+header {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    align-items: center;
+    gap: 32px;
+}
+
+.headerBall {
+    height: 90px;     /* adjust to taste */
+    width: auto;
+}
+
+h1 {
+    font-family: "Pokemon Hollow", sans-serif;
+    color: #F4F0E8;
+}
+
+h2, .stat-label {
+    font-family: "Pokemon Hollow", sans-serif;
+    color: #F4F0E8;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+}
+
+main section a {
+    margin-top: auto;      /* pushes the link to the bottom of its section */
+    align-self: flex-start;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    line-height: 1.6;
+    color: #F4F0E8;
+    background: #10132B;
+
+}
+
+#footerForMainPage h2 {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#footerForMainPage ul {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+/* these buttons are ai generated, i changed some of the colors and stuff though */
+main section a {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 12px 24px;
+    background: #ff5350;
+    color: #1a1c3d;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    margin-bottom: 50px;
+}
+
+main section a:hover {
+    background:  #ffcb05;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+main section a:active {
+    transform: translateY(3px);
+}
+
+nav a {
+    display: inline-block;
+    padding: 6px 14px;
+    color: #e6e8ff;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    transition: background 0.2s, border-color 0.2s;
+    margin-bottom: 20px ;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+
+
