@@ -10,7 +10,7 @@ function getPokemon(url){
         fetch(url)
             .then(response=>response.json())
             .then(data => {
-                    resultsForPoke.innerHTML = `
+                    resultsForPoke.innerTEXT = `
                         <table>
                             <tr> 
                                 <th>ID</th>
@@ -29,7 +29,7 @@ function getPokemon(url){
                                 `
 
                     data.forEach(pokemon =>{
-                        resultsForPoke.querySelector("table").innerHTML +=`
+                        resultsForPoke.querySelector("table").innerTEXT +=`
                             <tr>
                                 <td>${pokemon.pokedex_number}</td>
                                 <td><img class="pokemonPicture" 
@@ -58,7 +58,7 @@ function getTypes() {
         .then(response => response.json())
         .then(data=>{
             data.forEach(pickType =>{
-                inputForType.innerHTML +=`
+                inputForType.innerText +=`
                 <option value = "${pickType.primary_type}">
                 ${pickType.primary_type}
                 </option>
