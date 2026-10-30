@@ -20,25 +20,23 @@
 
 <div id="pokemonList">
     <h3>Pokémon list</h3>
-    <button id="allBtn">All Pokémons</button>
-
-    <br><br>
 
     <label for="typeInput">Primary type: </label>
-    <input type="text" id="typeInput" required>
-    <button id="typeBtn">Primary type</button>
+    <select id="typeInput" required>
+        <option value="">All types</option>
+    </select>
 
     <br><br>
 
     <label for="attackInput">Min. Atk: </label>
     <input type="number" id="attackInput" required placeholder="e.g. 80">
-    <button id="attackBtn">Search attack</button>
 
     <br><br>
 
     <label for="nameInput">Pokémon name: </label>
     <input type="text" id="nameInput" required placeholder="Search pokémon">
-    <button id="nameBtn">Search name</button>
+
+    <button id="searchBtn">Search</button>
 
     <div id="pokemonResults"></div>
 </div>
