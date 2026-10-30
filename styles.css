@@ -144,6 +144,292 @@ nav a:hover {
 
 /* === TRAINERS === */
 
+section {
+    background: #242653;
+    border-radius: 12px;
+    padding: 24px 40px;
+    margin: 20px auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+/* Formularer: felter og knap på én vandret linje */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+/* Hvert felt: label over input */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field label {
+    font-size: 0.85rem;
+    color: rgba(244, 240, 232, 0.7);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    background: #10132B;
+    color: #F4F0E8;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    min-width: 140px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #ff5350;
+}
+
+button {
+    background: #ff5350;
+    color: #1a1c3d;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+button:hover {
+    background: #ffcb05;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Beskeder */
+#trainerMessage,
+#addPokemonMessage {
+    color: #ffcb05;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* Trainer-listen */
+#trainerList p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 0;
+    margin: 0;
+}
+
+/* Pokémon-resultater */
+#trainerPokemonResults h3 {
+    color: #ffcb05;
+    margin-bottom: 8px;
+}
+
+#trainerPokemonResults p {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+}
+
+/* === TRAINERS === */
+
+section {
+    background: #242653;
+    border-radius: 12px;
+    padding: 24px 40px;
+    margin: 20px auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+/* Formularer: felter og knap på én vandret linje */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+/* Hvert felt: label over input */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field label {
+    font-size: 0.85rem;
+    color: rgba(244, 240, 232, 0.7);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    background: #10132B;
+    color: #F4F0E8;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    min-width: 140px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #ff5350;
+}
+
+button {
+    background: #ff5350;
+    color: #1a1c3d;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+button:hover {
+    background: #ffcb05;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Beskeder */
+#trainerMessage,
+#addPokemonMessage {
+    color: #ffcb05;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* Trainer-listen */
+#trainerList p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 0;
+    margin: 0;
+}
+
+/* Pokémon-resultater */
+#trainerPokemonResults h3 {
+    color: #ffcb05;
+    margin-bottom: 8px;
+}
+
+#trainerPokemonResults p {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+}
+
+/* Layout: sektionerne stables pænt ned ad siden med luft imellem */
+trainer.html main,
+body:has(#trainerList) {
+    display: block;
+}
+
+section {
+    background: #242653;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+/* Inputfelter */
+input[type="text"],
+input[type="number"],
+select {
+    background: #10132B;
+    color: #F4F0E8;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    margin: 6px 4px 12px 0;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #ff5350;
+}
+
+/* Knapper */
+button {
+    background: #ff5350;
+    color: #1a1c3d;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 4px;
+}
+
+button:hover {
+    background: #ffcb05;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Beskeder under formularer */
+#trainerMessage,
+#addPokemonMessage {
+    color: #ffcb05;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* Trainer-listen */
+#trainerList p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 0;
+    margin: 0;
+}
+
+/* Pokémon-resultater */
+#trainerPokemonResults h3 {
+    color: #ffcb05;
+    margin-bottom: 8px;
+}
+
+#trainerPokemonResults p {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+}
+
 
 
 /* === DASHBOARD === */

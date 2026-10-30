@@ -24,6 +24,23 @@ createTrainerForm.addEventListener('submit', (event) => {
             console.log("Svar fra serveren:", data);
             messageElement.textContent = "Trainer created!";
             loadTrainers();
+
+function loadPokemon() {
+    fetch('http://localhost:3000/pokemon')
+        .then(res => res.json())
+        .then(pokemonList => {
+            const datalist = document.getElementById('pokemonDatalist');
+            datalist.textContent = '';
+
+            pokemonList.forEach(pokemon => {
+                const option = document.createElement('option');
+                option.value = pokemon.name;
+                datalist.appendChild(option);
+            });
+        });
+}
+
+loadPokemon();
         });
 });
 
@@ -33,7 +50,7 @@ const addPokemonMessage = document.getElementById('addPokemonMessage');
 addPokemonForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const trainerName = document.getElementById('assignTrainerName').value;
+    const trainerName = document.getElementById('assignTrainerSelect').value;
     const pokemonName = document.getElementById('PokemonName').value;
 
     console.log("Add", pokemonName, "to", trainerName);
@@ -61,14 +78,21 @@ function loadTrainers() {
         .then(trainers => {
             const trainerList = document.getElementById('trainerList');
             const trainerSelect = document.getElementById('trainerSelect');
+            const assignTrainerSelect = document.getElementById('assignTrainerSelect');
 
-            trainerList.textContent = ''; // Tømmer listen sikkert
-            trainerSelect.textContent = ''; // Tømmer dropdown sikkert
+            trainerList.textContent = '';
+            trainerSelect.textContent = '';
+            assignTrainerSelect.textContent = '';
 
             const defaultOption = document.createElement('option');
             defaultOption.value = '';
             defaultOption.textContent = '-- Select a trainer --';
             trainerSelect.appendChild(defaultOption);
+
+            const assignDefaultOption = document.createElement('option');
+            assignDefaultOption.value = '';
+            assignDefaultOption.textContent = '-- Select a trainer --';
+            assignTrainerSelect.appendChild(assignDefaultOption);
 
             trainers.forEach(trainer => {
                 // Tilføj til listen under "All Trainers"
@@ -76,16 +100,39 @@ function loadTrainers() {
                 p.textContent = trainer.trainer_name + " - Age: " + (trainer.age || "Unknown") + " - City: " + (trainer.hometown || "Unknown");
                 trainerList.appendChild(p);
 
-                // Tilføj til dropdown-menuen
+                // Tilføj til "Trainer's Pokémon" dropdown
                 const option = document.createElement('option');
                 option.value = trainer.trainer_name;
                 option.textContent = trainer.trainer_name;
                 trainerSelect.appendChild(option);
+
+                // Tilføj også til "Add Pokémon" dropdown
+                const assignOption = document.createElement('option');
+                assignOption.value = trainer.trainer_name;
+                assignOption.textContent = trainer.trainer_name;
+                assignTrainerSelect.appendChild(assignOption);
             });
         });
 }
 
 loadTrainers();
+
+function loadPokemon() {
+    fetch('http://localhost:3000/pokemon')
+        .then(res => res.json())
+        .then(pokemonList => {
+            const datalist = document.getElementById('pokemonDatalist');
+            datalist.textContent = '';
+
+            pokemonList.forEach(pokemon => {
+                const option = document.createElement('option');
+                option.value = pokemon.name;
+                datalist.appendChild(option);
+            });
+        });
+}
+
+loadPokemon();
 
 const viewPokemonBtn = document.getElementById('viewPokemonBtn');
 const trainerSelect = document.getElementById('trainerSelect');
