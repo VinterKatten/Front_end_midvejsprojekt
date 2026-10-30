@@ -2,10 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokemon</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header><h1>POKÉMON</h1></header>
+<header><h1>YOUR POKÉDEX</h1></header>
 
 <nav>
     <a href="index.html">Home</a>
@@ -14,34 +15,33 @@
     <a href="dash.html">Dashboard</a>
 </nav>
 
-
+<main>
 <h2>Pokémons</h2>
 
 <div id="pokemonList">
     <h3>Pokémon list</h3>
-    <button id="allBtn">All Pokémons</button>
-
-    <br><br>
 
     <label for="typeInput">Primary type: </label>
-    <input type="text" id="typeInput" required>
-    <button id="typeBtn">Primary type</button>
+    <select id="typeInput" required>
+        <option value="">All types</option>
+    </select>
 
     <br><br>
 
-    <label for="attackInput">Attack higher than: </label>
-    <input type="number" id="attackInput" required>
-    <button id="attackBtn">Search attack</button>
+    <label for="attackInput">Min. Atk: </label>
+    <input type="number" id="attackInput" required placeholder="e.g. 80">
 
     <br><br>
 
     <label for="nameInput">Pokémon name: </label>
-    <input type="text" id="nameInput" required>
-    <button id="nameBtn">Search name</button>
+    <input type="text" id="nameInput" required placeholder="Search pokémon">
+
+    <button id="searchBtn">Search</button>
 
     <div id="pokemonResults"></div>
 </div>
 
+</main>
 
 <footer id="footerForMainPage">
     <h2>Contact info</h2>
@@ -60,6 +60,7 @@
         </li>
     </ul>
 </footer>
+
 
 <script src="poke.js"></script>
 
