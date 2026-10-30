@@ -62,10 +62,21 @@ function loadTrainers() {
             const trainerList = document.getElementById('trainerList');
             const trainerSelect = document.getElementById('trainerSelect');
 
-            trainerList.innerHTML = ''; // Tømmer listen først, så der ikke kommer dubletter
-            trainerSelect.innerHTML = '<option value="">-- Select a trainer --</option>';
+            trainerList.textContent = ''; // Tømmer listen sikkert
+            trainerSelect.textContent = ''; // Tømmer dropdown sikkert
+
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = '-- Select a trainer --';
+            trainerSelect.appendChild(defaultOption);
 
             trainers.forEach(trainer => {
+                // Tilføj til listen under "All Trainers"
+                const p = document.createElement('p');
+                p.textContent = trainer.trainer_name + " - Age: " + (trainer.age || "Unknown") + " - City: " + (trainer.hometown || "Unknown");
+                trainerList.appendChild(p);
+
+                // Tilføj til dropdown-menuen
                 const option = document.createElement('option');
                 option.value = trainer.trainer_name;
                 option.textContent = trainer.trainer_name;
@@ -92,14 +103,21 @@ viewPokemonBtn.addEventListener('click', () => {
         .then(res => res.json())
         .then(pokemonList => {
             const resultsContainer = document.getElementById('trainerPokemonResults');
-            resultsContainer.innerHTML = ''; // Tøm kassen først
+            resultsContainer.textContent = ''; // Tømmer kassen sikkert
+
             if (pokemonList.length === 0) {
-                resultsContainer.innerHTML = `<p>${selectedTrainer} has no Pokémon yet.</p>`;
+                const emptyMessage = document.createElement('p');
+                emptyMessage.textContent = `${selectedTrainer} doesn't have any Pokémon yet.`;
+                resultsContainer.appendChild(emptyMessage);
                 return;
             }
+
             // Lav en overskrift
-            resultsContainer.innerHTML = `<h3>${selectedTrainer}'s Pokémon:</h3>`;
-            // Løb igennem hver Pokémon og vis dem
+            const heading = document.createElement('h3');
+            heading.textContent = `${selectedTrainer}'s Pokémon:`;
+            resultsContainer.appendChild(heading);
+
+            // Løb igennem hver Pokémon og vis dem sikkert
             pokemonList.forEach(pokemon => {
                 const p = document.createElement('p');
                 p.textContent = `#${pokemon.pokedex_number} - ${pokemon.name} (${pokemon.primary_type}${pokemon.secondary_type ? ' / ' + pokemon.secondary_type : ''})`;
