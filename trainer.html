@@ -33,19 +33,19 @@
     <form id="createTrainerform">
         <div class="field">
             <label for="trainerName">Trainer Name:</label>
-            <input type="text" id="trainerName" required>
+            <input type="text" id="trainerName" maxlength="50" required>
         </div>
         <div class="field">
             <label for="trainerAge">Age:</label>
-            <input type="number" id="trainerAge">
+            <input type="number" id="trainerAge" min="0" max="150" step="1">
         </div>
         <div class="field">
             <label for="trainerHometown">Hometown:</label>
-            <input type="text" id="trainerHometown">
+            <input type="text" id="trainerHometown" maxlength="50">
         </div>
         <button type="submit">Create Trainer</button>
     </form>
-    <p id="trainerMessage"></p>
+    <p id="trainerMessage" aria-live="polite"></p>
 </section>
 
 <section>
@@ -53,7 +53,7 @@
     <form id="createPokemonForm">
         <div class="field">
             <label for="PokemonName">Pokémon Name:</label>
-            <input type="text" id="PokemonName" list="pokemonDatalist" required autocomplete="off">
+            <input type="text" id="PokemonName" list="pokemonDatalist" maxlength="50" required autocomplete="off">
             <datalist id="pokemonDatalist"></datalist>
         </div>
         <div class="field">
@@ -64,7 +64,7 @@
         </div>
         <button type="submit">Add Pokémon</button>
     </form>
-    <p id="addPokemonMessage"></p>
+    <p id="addPokemonMessage" aria-live="polite"></p>
 </section>
 
 <section>
