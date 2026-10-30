@@ -32,7 +32,9 @@ function getPokemon(url){
                         resultsForPoke.querySelector("table").innerHTML +=`
                             <tr>
                                 <td>${pokemon.pokedex_number}</td>
-                                <td><img class="pokemonPicture" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png"></td>
+                                <td><img class="pokemonPicture" 
+                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png"
+                                alt="Picture of ${pokemon.name}"></td>
                                 <td>${pokemon.name}</td>
                                 <td>${pokemon.speed}</td>
                                 <td>${pokemon.special_defence}</td>
