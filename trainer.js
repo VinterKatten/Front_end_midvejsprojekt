@@ -23,6 +23,7 @@ createTrainerForm.addEventListener('submit', (event) => {
         .then(data => {
             console.log("Svar fra serveren:", data);
             messageElement.textContent = "Trainer created!";
+            loadTrainers();
         });
 });
 
@@ -50,7 +51,8 @@ addPokemonForm.addEventListener('submit', (event) => {
         .then(res => res.json())
         .then(data => {
             console.log("Answer from server:", data);
-            addPokemonMessage.textContent = trainerName + " caught a " + pokemonName + "!";        });
+            addPokemonMessage.textContent = trainerName + " caught a " + pokemonName + "!";
+        });
 });
 
 function loadTrainers() {
@@ -58,14 +60,50 @@ function loadTrainers() {
         .then(res => res.json())
         .then(trainers => {
             const trainerList = document.getElementById('trainerList');
+            const trainerSelect = document.getElementById('trainerSelect');
+
             trainerList.innerHTML = ''; // Tømmer listen først, så der ikke kommer dubletter
+            trainerSelect.innerHTML = '<option value="">-- Select a trainer --</option>';
 
             trainers.forEach(trainer => {
-                const p = document.createElement('p');
-                p.textContent = trainer.trainer_name + " - Alder: " + (trainer.age || "Ukendt") + " - By: " + (trainer.hometown || "Ukendt");
-                trainerList.appendChild(p);
+                const option = document.createElement('option');
+                option.value = trainer.trainer_name;
+                option.textContent = trainer.trainer_name;
+                trainerSelect.appendChild(option);
             });
         });
 }
 
 loadTrainers();
+
+const viewPokemonBtn = document.getElementById('viewPokemonBtn');
+const trainerSelect = document.getElementById('trainerSelect');
+
+viewPokemonBtn.addEventListener('click', () => {
+    const selectedTrainer = trainerSelect.value;
+
+    if (!selectedTrainer) {
+        alert("Please select a trainer first!");
+        return;
+    }
+
+    // Kald backend med den valgte træner
+    fetch(`http://localhost:3000/trainer/pokemon?trainer=${encodeURIComponent(selectedTrainer)}`)
+        .then(res => res.json())
+        .then(pokemonList => {
+            const resultsContainer = document.getElementById('trainerPokemonResults');
+            resultsContainer.innerHTML = ''; // Tøm kassen først
+            if (pokemonList.length === 0) {
+                resultsContainer.innerHTML = `<p>${selectedTrainer} has no Pokémon yet.</p>`;
+                return;
+            }
+            // Lav en overskrift
+            resultsContainer.innerHTML = `<h3>${selectedTrainer}'s Pokémon:</h3>`;
+            // Løb igennem hver Pokémon og vis dem
+            pokemonList.forEach(pokemon => {
+                const p = document.createElement('p');
+                p.textContent = `#${pokemon.pokedex_number} - ${pokemon.name} (${pokemon.primary_type}${pokemon.secondary_type ? ' / ' + pokemon.secondary_type : ''})`;
+                resultsContainer.appendChild(p);
+            });
+        });
+});
