@@ -195,13 +195,13 @@ nav a:hover {
 
 .Normal{
 background-color: #A8A878;
-    color: white;
+    color: #55504A;
     font-weight: bold;
 }
 
 .Grass{
 background-color: #78C850;
-    color: white;
+    color: #245C24;
     font-weight: bold;
 }
 
@@ -213,91 +213,91 @@ background-color: #F08030;
 
 .Water{
 background-color: #6890F0;
-    color: white;
+    color: #123D70;
     font-weight: bold;
 }
 
 .Ice{
 background-color: #98D8D8;
-    color: white;
+    color: #356B80;
     font-weight: bold;
 }
 
 .Electric{
 background-color: #F8D030;
-    color: white;
+    color: #806000;
     font-weight: bold;
 }
 
 .Fighting{
     background-color: #C03028;
-    color: white;
+    color: #852B20;
     font-weight: bold;
 }
 
 .Poison{
     background-color: #A040A0;
-    color: white;
+    color: #542060;
     font-weight: bold;
 }
 
 .Ground{
     background-color: #E0C068;
-    color: white;
+    color: #79521F;
     font-weight: bold;
 }
 
 .Flying{
     background-color: #A890F0;
-    color: white;
+    color: #514B85;
     font-weight: bold;
 }
 
 .Psychic{
     background-color: #F85888;
-    color: white;
+    color: #8A2850;
     font-weight: bold;
 }
 
 .Bug{
     background-color: #A8B820;
-    color: white;
+    color: #465000;
     font-weight: bold;
 }
 
 .Rock{
     background-color: #B8A038;
-    color: white;
+    color: #62552A;
     font-weight: bold;
 }
 
 .Ghost{
     background-color: #705898;
-    color: white;
+    color: #40305E;
     font-weight: bold;
 }
 
 .Dragon{
     background-color: #7038F8;
-    color: white;
+    color: #373080;
     font-weight: bold;
 }
 
 .Dark{
     background-color: #705848;
-    color: white;
+    color: #252525;
     font-weight: bold;
 }
 
 .Steel{
     background-color: #B8B8D0;
-    color: white;
+    color: #46515C;
     font-weight: bold;
 }
 
 .Fairy{
     background-color: #EE99AC;
-    color: white;
+    color: #803D60;
     font-weight: bold;
 }
 
