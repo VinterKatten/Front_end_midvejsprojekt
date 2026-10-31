@@ -40,21 +40,51 @@ function getPokemon(url){
                 idCell.innerText = pokemon.pokedex_number
                 row.appendChild(idCell)
 
-                const imgCell = document.createElement("td") // Er vores img celle
-                const picToImg = document.createElement("img") // Er hvor selve vores billede lægger i
-                picToImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png`
-                picToImg.alt = `Picture of ${pokemon.name}`
+                const pokemonCell = document.createElement("td") // Er vores img celle
+                const picToPokemon = document.createElement("img") // Er hvor selve vores billede lægger i
+                picToPokemon.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png`
+                picToPokemon.alt = `Picture of ${pokemon.name}`
 
-                imgCell.appendChild(picToImg)
-                row.appendChild(imgCell)
+                pokemonCell.appendChild(picToPokemon)
+                row.appendChild(pokemonCell)
 
                 const nameCell = document.createElement("td")
                 nameCell.innerText = pokemon.name
                 row.appendChild(nameCell)
 
+                const priTypeCell = document.createElement("td")
+                const priTypeLabel = document.createElement("span")
+                priTypeLabel.innerText = pokemon.primary_type
+                priTypeLabel.classList.add(pokemon.primary_type) // Gives the types a class
+
+                priTypeCell.appendChild(priTypeLabel)
+                row.appendChild(priTypeCell)
+
+                const secTypeCell = document.createElement("td")
+                if (pokemon.secondary_type){
+                const secTypeLabel = document.createElement("span")
+                secTypeLabel.innerText = pokemon.secondary_type
+                    secTypeLabel.classList.add(pokemon.secondary_type)
+
+                secTypeCell.appendChild(secTypeLabel)
+                } // If there is a secondary type, will it get added
+                row.appendChild(secTypeCell)
+
+                const hpCell = document.createElement("td")
+                hpCell.innerText = pokemon.hp
+                row.appendChild(hpCell)
+
                 const speedCell = document.createElement("td")
                 speedCell.innerText = pokemon.speed
                 row.appendChild(speedCell)
+
+                const atkCell = document.createElement("td")
+                atkCell.innerText = pokemon.attack
+                row.appendChild(atkCell)
+
+                const defCell = document.createElement("td")
+                defCell.innerText = pokemon.defence
+                row.appendChild(defCell)
 
                 const spDefCell = document.createElement("td")
                 spDefCell.innerText = pokemon.special_defence
@@ -63,26 +93,6 @@ function getPokemon(url){
                 const spAtkCell = document.createElement("td")
                 spAtkCell.innerText = pokemon.special_attack
                 row.appendChild(spAtkCell)
-
-                const defCell = document.createElement("td")
-                defCell.innerText = pokemon.defence
-                row.appendChild(defCell)
-
-                const atkCell = document.createElement("td")
-                atkCell.innerText = pokemon.attack
-                row.appendChild(atkCell)
-
-                const hpCell = document.createElement("td")
-                hpCell.innerText = pokemon.hp
-                row.appendChild(hpCell)
-
-                const priTypeCell = document.createElement("td")
-                priTypeCell.innerText = pokemon.primary_type
-                row.appendChild(priTypeCell)
-
-                const secTypeCell = document.createElement("td")
-                secTypeCell.innerText = pokemon.secondary_type
-                row.appendChild(secTypeCell)
 
                 dataForPokemon.appendChild(row)
             }

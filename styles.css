@@ -141,6 +141,97 @@ nav a:hover {
 /* === POKEMON === */
 
 
+/* The types colors and badge style */
+.Normal{
+background-color: #A8A878;
+    color: white;
+}
+
+.Grass{
+background-color: #78C850;
+    color: white;
+}
+
+.Fire{
+background-color: #F08030;
+    color: white;
+}
+
+.Water{
+background-color: #6890F0;
+    color: white;
+}
+
+.Ice{
+background-color: #98D8D8;
+    color: white;
+}
+
+.Electric{
+background-color: #F8D030;
+    color: white;
+}
+
+.Fighting{
+    background-color: #C03028;
+    color: white;
+}
+
+.Poison{
+    background-color: #A040A0;
+    color: white;
+}
+
+.Ground{
+    background-color: #E0C068;
+    color: white;
+}
+
+.Flying{
+    background-color: #A890F0;
+    color: white;
+}
+
+.Psychic{
+    background-color: #F85888;
+    color: white;
+}
+
+.Bug{
+    background-color: #A8B820;
+    color: white;
+}
+
+.Rock{
+    background-color: #B8A038;
+    color: white;
+}
+
+.Ghost{
+    background-color: #705898;
+    color: white;
+}
+
+.Dragon{
+    background-color: #7038F8;
+    color: white;
+}
+
+.Dark{
+    background-color: #705848;
+    color: white;
+}
+
+.Steel{
+    background-color: #B8B8D0;
+    color: white;
+}
+
+.Fairy{
+    background-color: #EE99AC;
+    color: white;
+}
+
 
 /* === TRAINERS === */
 
