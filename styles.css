@@ -139,9 +139,60 @@ nav a:hover {
 
 
 /* === POKEMON === */
+#pokemonPage{
+    display: block;
+    justify-content: center;
+}
 
+#pokemonPage h2{
+    text-align: left;
+    margin-left: 20px;
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+#pokemonList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: #242653;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px auto;
+}
+
+#pokemonTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #464997;
+    font-size: 14px;
+}
+
+#pokemonTable th, #pokemonTable td{
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #040622;
+}
+
+#pokemonTable img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+#tableContainer {
+    margin: 20px;
+}
 
 /* The types colors and badge style */
+#pokemonTable td span{
+    display: inline;
+    padding: 5px;
+    border-radius: 6px;
+}
+
 .Normal{
 background-color: #A8A878;
     color: white;
@@ -232,6 +283,13 @@ background-color: #F8D030;
     color: white;
 }
 
+
+#pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
 
 /* === TRAINERS === */
 

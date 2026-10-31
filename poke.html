@@ -15,16 +15,15 @@
     <a href="dash.html">Dashboard</a>
 </nav>
 
-<main>
+<main id="pokemonPage">
 <h2>Pokémon</h2>
 
         <! For the filters -->
 <div id="pokemonList">
-    <h3>Pokémon list</h3>
 
     <label for="typeInput">Primary type: </label>
     <select id="typeInput" required>
-        <option value="">All types</option>
+        <option value="">-- All types --</option>
     </select>
 
     <br><br>
@@ -38,10 +37,10 @@
     <input type="text" id="nameInput" required placeholder="Search Pokémon">
 
     <button id="searchBtn">Search</button>
-
 </div>
 
         <! The table -->
+<div id="tableContainer">
     <table id="pokemonTable">
         <tr>
             <th>ID</th>
@@ -58,14 +57,14 @@
         </tr>
         <tbody id="pokemonData"></tbody>
     </table>
-
+</div>
 
     <! Pagination for our table -->
-    <div id="pagination">
-        <button id="previousBtn">Prev</button>
-        <span id="pageNumber">1</span>
-        <button id="nextBtn">Next</button>
-    </div>
+<div id="pagination">
+    <button id="previousBtn">Prev</button>
+    <span id="pageNumber">1</span>
+    <button id="nextBtn">Next</button>
+</div>
 
 </main>
 
