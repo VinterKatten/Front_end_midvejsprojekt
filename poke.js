@@ -1,20 +1,39 @@
+// For filtering
 const btnForSearch = document.querySelector("#searchBtn")
 
 const inputForType = document.querySelector("#typeInput")
 const inputForAttack = document.querySelector("#attackInput")
 const inputForName = document.querySelector("#nameInput")
 
+// Pagination
+const prevBtn = document.querySelector("#previousBtn")
+const pageNumb = document.querySelector("#pageNumber")
+const nextpageBtn = document.querySelector("#nextBtn")
+
+let currentPage = 1
+let pokemonprPage = 20
+let pokemons = []
+
+
+// for tabellen
 const dataForPokemon = document.querySelector("#pokemonData")
 
-// Tabellen over pokemon
+// Tabellen over pokemon (+ pagination, since they are connected)
 function getPokemon(url){
     fetch(url)
         .then(response=>response.json())
         .then(data => {
-
+            // For pagination
             dataForPokemon.innerText = ""
 
-            data.forEach(pokemon => {
+
+            pokemons = data
+            const start = (currentPage - 1) * pokemonprPage
+            const end = start + pokemonprPage
+
+            for (let i = start; i < end; i++){
+                const pokemon = pokemons[i]
+
                 const row = document.createElement("tr")
 
                 const idCell = document.createElement("td")
@@ -66,7 +85,11 @@ function getPokemon(url){
                 row.appendChild(secTypeCell)
 
                 dataForPokemon.appendChild(row)
-            })
+            }
+
+            // So it will show us the current page on our table/site
+            pageNumb.innerText = currentPage
+
         })
         .catch(error => {
             console.log("Error: ", error)
@@ -104,6 +127,47 @@ btnForSearch.addEventListener("click", () => {
         getPokemon(`http://localhost:3000/pokemon/name?char=${encodeURIComponent(name)}`)
     } else {
         getPokemon("http://localhost:3000/pokemon")
+    }
+})
+
+prevBtn.addEventListener("click",()=>{
+    if (currentPage >1){
+        currentPage--
+
+        // Needed to copy paste this in again so even if we clicked next page would it keep our filters
+        const type = inputForType.value
+        const attack = inputForAttack.value
+        const name = inputForName.value
+        if (type) {
+            getPokemon(`http://localhost:3000/pokemon/type?type=${encodeURIComponent(type)}`)
+        } else if (attack) {
+            getPokemon(`http://localhost:3000/pokemon/minATK?attack=${encodeURIComponent(attack)}`)
+        } else if (name) {
+            getPokemon(`http://localhost:3000/pokemon/name?char=${encodeURIComponent(name)}`)
+        } else {
+            getPokemon("http://localhost:3000/pokemon")
+        }
+    }
+})
+
+nextpageBtn.addEventListener("click", ()=>{
+    if (currentPage < Math.ceil(pokemons.length/pokemonprPage)) { /* Divides how many pokemons we have in our
+        database, with how many we want pr. page. Math.Ceil is so it will round up the number */
+        currentPage++
+
+        // Needed to copy paste this in again so even if we clicked next page would it keep our filters
+        const type = inputForType.value
+        const attack = inputForAttack.value
+        const name = inputForName.value
+        if (type) {
+            getPokemon(`http://localhost:3000/pokemon/type?type=${encodeURIComponent(type)}`)
+        } else if (attack) {
+            getPokemon(`http://localhost:3000/pokemon/minATK?attack=${encodeURIComponent(attack)}`)
+        } else if (name) {
+            getPokemon(`http://localhost:3000/pokemon/name?char=${encodeURIComponent(name)}`)
+        } else {
+            getPokemon("http://localhost:3000/pokemon")
+        }
     }
 })
 
