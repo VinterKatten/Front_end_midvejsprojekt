@@ -4,82 +4,105 @@ const inputForType = document.querySelector("#typeInput")
 const inputForAttack = document.querySelector("#attackInput")
 const inputForName = document.querySelector("#nameInput")
 
-const resultsForPoke = document.querySelector("#pokemonResults")
+const dataForPokemon = document.querySelector("#pokemonData")
 
+// Tabellen over pokemon
 function getPokemon(url){
-        fetch(url)
-            .then(response=>response.json())
-            .then(data => {
-                    resultsForPoke.innerTEXT = `
-                        <table>
-                            <tr> 
-                                <th>ID</th>
-                                <th>Img</th>
-                                <th>Name</th>
-                                <th>speed</th>
-                                <th>Sp def</th>
-                                <th>Sp atk</th>
-                                <th>Defence</th>
-                                <th>Attack</th>
-                                <th>HP</th>
-                                <th>Primary type</th>
-                                <th>Secondary type</th>
-                            </tr>
-                        </table>
-                                `
+    fetch(url)
+        .then(response=>response.json())
+        .then(data => {
 
-                    data.forEach(pokemon =>{
-                        resultsForPoke.querySelector("table").innerTEXT +=`
-                            <tr>
-                                <td>${pokemon.pokedex_number}</td>
-                                <td><img class="pokemonPicture" 
-                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png"
-                                alt="Picture of ${pokemon.name}"></td>
-                                <td>${pokemon.name}</td>
-                                <td>${pokemon.speed}</td>
-                                <td>${pokemon.special_defence}</td>
-                                <td>${pokemon.special_attack}</td>
-                                <td>${pokemon.defence}</td>
-                                <td>${pokemon.attack}</td>
-                                <td>${pokemon.hp}</td>
-                                <td>${pokemon.primary_type}</td>
-                                <td>${pokemon.secondary_type}</td>
-                            </tr>
-                            `
-                    });
+            dataForPokemon.innerText = ""
+
+            data.forEach(pokemon => {
+                const row = document.createElement("tr")
+
+                const idCell = document.createElement("td")
+                idCell.innerText = pokemon.pokedex_number
+                row.appendChild(idCell)
+
+                const imgCell = document.createElement("td") // Er vores img celle
+                const picToImg = document.createElement("img") // Er hvor selve vores billede lægger i
+                picToImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png`
+                picToImg.alt = `Picture of ${pokemon.name}`
+
+                imgCell.appendChild(picToImg)
+                row.appendChild(imgCell)
+
+                const nameCell = document.createElement("td")
+                nameCell.innerText = pokemon.name
+                row.appendChild(nameCell)
+
+                const speedCell = document.createElement("td")
+                speedCell.innerText = pokemon.speed
+                row.appendChild(speedCell)
+
+                const spDefCell = document.createElement("td")
+                spDefCell.innerText = pokemon.special_defence
+                row.appendChild(spDefCell)
+
+                const spAtkCell = document.createElement("td")
+                spAtkCell.innerText = pokemon.special_attack
+                row.appendChild(spAtkCell)
+
+                const defCell = document.createElement("td")
+                defCell.innerText = pokemon.defence
+                row.appendChild(defCell)
+
+                const atkCell = document.createElement("td")
+                atkCell.innerText = pokemon.attack
+                row.appendChild(atkCell)
+
+                const hpCell = document.createElement("td")
+                hpCell.innerText = pokemon.hp
+                row.appendChild(hpCell)
+
+                const priTypeCell = document.createElement("td")
+                priTypeCell.innerText = pokemon.primary_type
+                row.appendChild(priTypeCell)
+
+                const secTypeCell = document.createElement("td")
+                secTypeCell.innerText = pokemon.secondary_type
+                row.appendChild(secTypeCell)
+
+                dataForPokemon.appendChild(row)
             })
-            .catch(error => {
-                console.log("Error: ", error)
-            });
+        })
+        .catch(error => {
+            console.log("Error: ", error)
+        });
 }
 
+// Drop down for filtrering af primary type
 function getTypes() {
     fetch("http://localhost:3000/pokemon/diffTypes")
         .then(response => response.json())
-        .then(data=>{
-            data.forEach(pickType =>{
-                inputForType.innerText +=`
-                <option value = "${pickType.primary_type}">
-                ${pickType.primary_type}
-                </option>
-                `
+        .then(data => {
+            data.forEach(pickType => {
+                const dropDownOption = document.createElement("option")
+                dropDownOption.value = `${pickType.primary_type}`
+                dropDownOption.innerText = `${pickType.primary_type}`
+
+                inputForType.appendChild(dropDownOption)
             })
         })
-        .catch(error=> console.log ("Error: ", error))
+        .catch(error => console.log("Error: ", error))
 }
 
-btnForSearch.addEventListener("click", ()=>{
+
+// Når man klikker på search knappen, så filtre den
+btnForSearch.addEventListener("click", () => {
     const type = inputForType.value
     const attack = inputForAttack.value
     const name = inputForName.value
 
-    if (type){
+    if (type) {
         getPokemon(`http://localhost:3000/pokemon/type?type=${encodeURIComponent(type)}`)
-    } else if (attack){
+    } else if (attack) {
         getPokemon(`http://localhost:3000/pokemon/minATK?attack=${encodeURIComponent(attack)}`)
-    } else if (name){
+    } else if (name) {
         getPokemon(`http://localhost:3000/pokemon/name?char=${encodeURIComponent(name)}`)
-    } else{
+    } else {
         getPokemon("http://localhost:3000/pokemon")
     }
 })
