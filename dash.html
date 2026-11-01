@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,24 +16,37 @@
     <a href="dash.html">Dashboard</a>
 </nav>
 
-    <main>
-        <h2>Pokémon Dashboard</h2>
-        <p>Explore Pokémon statistics</p>
+    <main id="mainDash">
+        <h2 id="dashHeader">Pokémon Dashboard</h2>
+        <p id="mainPara">Explore Pokémon statistics</p>
 
-        <section class="dashboard">
-            <div class="chart-container">
-                <h2>Average Attack by Type</h2>
-                <canvas id="attackChart"></canvas>
-            </div>
-
+        <section id="dashboard">
             <div class="chart-container">
                 <h2>Pokémon Type Distribution</h2>
                 <canvas id="typeChart"></canvas>
+                <p>As we can see, is the most common type, the water type, with 28 Pokémon
+                    that has this as their primary type.
+                    <br>Where fairy and ice is the least common, with only two Pokémon
+                    that has this as their primary type.</p>
+            </div>
+
+            <div class="chart-container">
+                <h2>Average Attack by Type</h2>
+                <canvas id="attackChart"></canvas>
+                <p>This chart shows the average attack for each type. As seen in the chart, has the fighting
+                    type the highest avg. attack with 102,86.
+                Where Ghost have the least with 50 in avg attack.
+                <br><br> It is the important to mention that there is an unequal amount of each type,
+                    as seen in the last chart.</p>
             </div>
 
             <div class="chart-container">
                 <h2>Most Balanced Pokémon</h2>
                 <canvas id="balancedChart"></canvas>
+                <p>This chart shows us which 20 Pokémon has the most balanced stats. This means it takes
+                    the Pokémons highest and lowest stat (hp, attack, defence, special_attack, special_defence, speed)
+                    and calculates the difference between them.
+                    <br><br>The smaller the distance the more balanced the Pokémon is.</p>
             </div>
 
         </section>

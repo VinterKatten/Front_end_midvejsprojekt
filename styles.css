@@ -611,15 +611,40 @@ button:active {
 
 
 /* === DASHBOARD === */
-
+/*  */
 button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
 }
 
+#mainDash{
+    display: block;
+    justify-content: center;
+}
 
+#dashHeader{
+    font-size: 40px;
+}
 
+/* The charts title adjustments */
+#dashHeader, #mainPara{
+    text-align: left;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.chart-container{
+    background-color: #303568;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px;
+}
+
+.chart-container h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
 
 /* For a phone */
 @media screen and (max-width: 500px) {
