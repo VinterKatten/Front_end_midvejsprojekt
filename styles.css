@@ -139,11 +139,14 @@ nav a:hover {
 
 
 /* === POKEMON === */
+
+/* So the table is under the search and they aren't beside each other */
 #pokemonPage{
     display: block;
     justify-content: center;
 }
 
+/* The Pokemon title adjustments */
 #pokemonPage h2{
     text-align: left;
     margin-left: 20px;
@@ -151,6 +154,7 @@ nav a:hover {
     font-size: 40px;
 }
 
+/* The filters are adjusted */
 #pokemonList {
     display: flex;
     justify-content: center;
@@ -163,6 +167,7 @@ nav a:hover {
     margin: 20px auto;
 }
 
+/* The table design */
 #pokemonTable {
     width: 100%;
     border-collapse: collapse;
@@ -170,18 +175,22 @@ nav a:hover {
     font-size: 14px;
 }
 
+/* Table header and data gets border and text adjustments */
 #pokemonTable th, #pokemonTable td{
     padding: 8px;
     text-align: center;
     border: 1px solid #040622;
 }
 
+/* Adjust the pictures */
 #pokemonTable img {
     width: 60px;
     height: 60px;
     object-fit: contain;
 }
 
+
+/* So the table doesn't touch the edge*/
 #tableContainer {
     margin: 20px;
 }
@@ -213,7 +222,7 @@ background-color: #F08030;
 
 .Water{
 background-color: #6890F0;
-    color: #123D70;
+    color: #103561;
     font-weight: bold;
 }
 
@@ -251,7 +260,7 @@ background-color: #F8D030;
 
 .Flying{
     background-color: #A890F0;
-    color: #443f70;
+    color: #37335a;
     font-weight: bold;
 }
 
@@ -281,7 +290,7 @@ background-color: #F8D030;
 
 .Dragon{
     background-color: #7038F8;
-    color: #292463;
+    color: #1e1a49;
     font-weight: bold;
 }
 
