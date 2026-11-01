@@ -128,12 +128,19 @@ async function showTrainerPokemon(trainerId, trainerName) {
         trainerPokemonResults.appendChild(heading);
 
         pokemonList.forEach((pokemon) => {
+            const imageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex_number}.png`;
+            const img = document.createElement('img');
+            img.src = imageURL;
+            img.alt = `Picture of ${pokemon.name}`;
+            trainerPokemonResults.appendChild(img);
+
             const p = document.createElement('p');
             const types = pokemon.secondary_type
                 ? `${pokemon.primary_type} / ${pokemon.secondary_type}`
                 : pokemon.primary_type;
             p.textContent = `#${pokemon.pokedex_number} - ${pokemon.name} (${types})`;
             trainerPokemonResults.appendChild(p);
+            console.log(imageURL);
         });
     } catch (error) {
         trainerPokemonResults.textContent = '';
